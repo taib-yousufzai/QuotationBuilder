@@ -2,13 +2,13 @@
 
 A modern quotation builder application built with React and Firebase, featuring all the functionality of the original PHP version.
 
-## 🎯 New Here? Start with [START_HERE.md](START_HERE.md)
+## New Here? Start with [START_HERE.md](START_HERE.md)
 
-## ✅ Status: All Features Working & Properly Aligned!
+## Status: All Features Working & Properly Aligned!
 
 All buttons are functional, components are properly aligned, and Firebase integration is complete. See [FINAL_SUMMARY.md](FINAL_SUMMARY.md) for details.
 
-## 📖 Documentation
+## Documentation
 
 - **[GETTING_STARTED.md](GETTING_STARTED.md)** - Step-by-step setup guide with checklist
 - **[FIREBASE_SETUP.md](FIREBASE_SETUP.md)** - Detailed Firebase configuration
@@ -21,7 +21,7 @@ All buttons are functional, components are properly aligned, and Firebase integr
 
 ## Features
 
-✅ **All Original Features Included:**
+**All Original Features Included:**
 - Add/Edit/Delete quotation items
 - Multiple sections with presets (Living Area, Kitchen, Bedroom, etc.)
 - Client and Staff modes (password: `admin123`)
