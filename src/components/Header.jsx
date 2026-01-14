@@ -1,7 +1,7 @@
 import { FaFileAlt, FaArrowsAltV, FaPalette, FaRupeeSign, FaUserShield, FaLink, FaList, FaDownload, FaFilePdf, FaPrint, FaSave, FaTrash } from 'react-icons/fa'
 
 function Header({ formData, setFormData, theme, setTheme, currency, setCurrency, pageSize, setPageSize, orientation, setOrientation, toggleStaffMode, staffMode, navigate, loadByNumber, handleExportPDF, handlePrint, saveToFirebase, clearAll }) {
-  
+
   const handleThemeChange = (e) => {
     const newTheme = e.target.value
     setTheme(newTheme)
@@ -43,9 +43,9 @@ function Header({ formData, setFormData, theme, setTheme, currency, setCurrency,
   return (
     <header className="header">
       <div className="brand">
-        <div className="logo">LI</div>
+        <div className="logo">MQ</div>
         <div className="brand-text">
-          <h1>Lifeasy Interior</h1>
+          <h1>Morphium Quotation Builder</h1>
           <p>Design & Build Solutions</p>
         </div>
       </div>
@@ -53,17 +53,17 @@ function Header({ formData, setFormData, theme, setTheme, currency, setCurrency,
         <div className="meta-group">
           <label>
             <span className="label-text">Quote #</span>
-            <input 
-              className="modern-input" 
-              placeholder="Auto" 
+            <input
+              className="modern-input"
+              placeholder="Auto"
               value={formData.docNo}
               onChange={(e) => setFormData(prev => ({ ...prev, docNo: e.target.value }))}
             />
           </label>
           <label>
             <span className="label-text">Date</span>
-            <input 
-              type="date" 
+            <input
+              type="date"
               className="modern-input"
               value={formData.date}
               onChange={(e) => setFormData(prev => ({ ...prev, date: e.target.value }))}

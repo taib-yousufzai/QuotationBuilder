@@ -16,7 +16,7 @@ function QuotationList() {
   useEffect(() => {
     // Load quotations first for faster page load
     loadQuotations()
-    
+
     // Check if admin mode is already active
     const isAdmin = sessionStorage.getItem('adminMode') === 'true'
     if (isAdmin) {
@@ -25,7 +25,7 @@ function QuotationList() {
       // Ask for password after a short delay to not block rendering
       setTimeout(() => {
         const pass = prompt('Enter admin password (leave blank for client view):')
-        if (pass === 'LifeasyAdmin@2024') {
+        if (pass === 'MorphiumAdmin@2024') {
           setStaffMode(true)
           sessionStorage.setItem('adminMode', 'true')
         }
@@ -52,7 +52,7 @@ function QuotationList() {
     }
 
     const searchLower = value.toLowerCase()
-    const filtered = quotations.filter(q => 
+    const filtered = quotations.filter(q =>
       q.docNo?.toLowerCase().includes(searchLower) ||
       q.clientName?.toLowerCase().includes(searchLower) ||
       q.projectTitle?.toLowerCase().includes(searchLower) ||
@@ -72,8 +72,8 @@ function QuotationList() {
     if (result.success) {
       const updatedQuotations = quotations.filter(q => q.id !== id)
       setQuotations(updatedQuotations)
-      setFilteredQuotations(updatedQuotations.filter(q => 
-        !searchTerm || 
+      setFilteredQuotations(updatedQuotations.filter(q =>
+        !searchTerm ||
         q.docNo?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         q.clientName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         q.projectTitle?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -91,7 +91,7 @@ function QuotationList() {
     const today = new Date()
     const diffTime = Math.abs(today - quotationDate)
     const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24))
-    
+
     if (diffDays === 0) return 'Today'
     if (diffDays === 1) return '1 day ago'
     return `${diffDays} days ago`
@@ -101,7 +101,7 @@ function QuotationList() {
     // Open the view page in a new window and trigger print
     const viewUrl = `/view/${quotation.id}`
     const printWindow = window.open(viewUrl, '_blank')
-    
+
     // Wait for the page to load, then trigger print
     if (printWindow) {
       printWindow.onload = () => {
@@ -115,22 +115,22 @@ function QuotationList() {
   const handleCopyToBuilder = async (quotation) => {
     try {
       setCopyingId(quotation.id)
-      
+
       // Copy the quotation data
       const copiedData = copyQuotationToBuilder(quotation)
-      
+
       // Create URL parameters for the copy operation
       const urlParams = createCopyUrlParams(quotation.id)
-      
+
       // Store the copied data in sessionStorage for the builder to pick up
       sessionStorage.setItem('copiedQuotationData', JSON.stringify(copiedData))
-      
+
       // Show success message
       alert(`Quotation ${quotation.docNo} copied successfully! Redirecting to builder...`)
-      
+
       // Navigate to builder with copy parameters
       navigate(`/?${urlParams}`)
-      
+
     } catch (error) {
       console.error('Error copying quotation:', error)
       alert(`Error copying quotation: ${error.message}`)
@@ -229,24 +229,24 @@ function QuotationList() {
                   </span>
                 </td>
                 <td style={{ padding: '12px' }}>
-                  <button 
-                    className="btn-secondary" 
+                  <button
+                    className="btn-secondary"
                     style={{ marginRight: '8px', padding: '6px 12px' }}
                     onClick={() => navigate(`/view/${q.id}`)}
                   >
                     <FaEye /> View
                   </button>
-                  <button 
-                    className="btn-secondary" 
+                  <button
+                    className="btn-secondary"
                     style={{ marginRight: '8px', padding: '6px 12px' }}
                     onClick={() => handlePrint(q)}
                   >
                     <FaPrint /> Print
                   </button>
-                  <button 
-                    className="btn-secondary" 
-                    style={{ 
-                      marginRight: '8px', 
+                  <button
+                    className="btn-secondary"
+                    style={{
+                      marginRight: '8px',
                       padding: '6px 12px',
                       opacity: copyingId === q.id ? 0.6 : 1,
                       cursor: copyingId === q.id ? 'not-allowed' : 'pointer'
@@ -257,13 +257,13 @@ function QuotationList() {
                   >
                     {copyingId === q.id ? (
                       <>
-                        <div style={{ 
-                          display: 'inline-block', 
-                          width: '12px', 
-                          height: '12px', 
-                          border: '2px solid var(--blue)', 
-                          borderTop: '2px solid transparent', 
-                          borderRadius: '50%', 
+                        <div style={{
+                          display: 'inline-block',
+                          width: '12px',
+                          height: '12px',
+                          border: '2px solid var(--blue)',
+                          borderTop: '2px solid transparent',
+                          borderRadius: '50%',
                           animation: 'spin 1s linear infinite',
                           marginRight: '4px'
                         }}></div>
@@ -277,15 +277,15 @@ function QuotationList() {
                   </button>
                   {staffMode && (
                     <>
-                      <button 
-                        className="btn-secondary" 
+                      <button
+                        className="btn-secondary"
                         style={{ marginRight: '8px', padding: '6px 12px' }}
                         onClick={() => navigate(`/?load=${q.docNo}`)}
                       >
                         <FaEdit /> Load
                       </button>
-                      <button 
-                        className="btn-danger" 
+                      <button
+                        className="btn-danger"
                         style={{ padding: '6px 12px' }}
                         onClick={() => handleDelete(q.id)}
                       >

@@ -8,11 +8,11 @@ import { copyQuotationToBuilder, createCopyUrlParams } from '../utils/copyQuotat
 // Number to words converter
 function numberToWords(num) {
   if (num === 0) return 'Zero'
-  
+
   const ones = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine']
   const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety']
   const teens = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen']
-  
+
   function convertLessThanThousand(n) {
     if (n === 0) return ''
     if (n < 10) return ones[n]
@@ -20,18 +20,18 @@ function numberToWords(num) {
     if (n < 100) return tens[Math.floor(n / 10)] + (n % 10 !== 0 ? ' ' + ones[n % 10] : '')
     return ones[Math.floor(n / 100)] + ' Hundred' + (n % 100 !== 0 ? ' ' + convertLessThanThousand(n % 100) : '')
   }
-  
+
   const crore = Math.floor(num / 10000000)
   const lakh = Math.floor((num % 10000000) / 100000)
   const thousand = Math.floor((num % 100000) / 1000)
   const remainder = Math.floor(num % 1000)
-  
+
   let result = ''
   if (crore > 0) result += convertLessThanThousand(crore) + ' Crore '
   if (lakh > 0) result += convertLessThanThousand(lakh) + ' Lakh '
   if (thousand > 0) result += convertLessThanThousand(thousand) + ' Thousand '
   if (remainder > 0) result += convertLessThanThousand(remainder)
-  
+
   return result.trim()
 }
 
@@ -46,7 +46,7 @@ function ViewQuotation() {
   useEffect(() => {
     // Load quotation first for faster page load
     loadQuotation()
-    
+
     // Check if admin mode is already active
     const isAdmin = sessionStorage.getItem('adminMode') === 'true'
     if (isAdmin) {
@@ -55,7 +55,7 @@ function ViewQuotation() {
       // Ask for password after a short delay to not block rendering
       setTimeout(() => {
         const pass = prompt('Enter admin password to enable admin tools (leave blank for client view):')
-        if (pass === 'LifeasyAdmin@2024') {
+        if (pass === 'MorphiumAdmin@2024') {
           setStaffMode(true)
           sessionStorage.setItem('adminMode', 'true')
         }
@@ -73,14 +73,14 @@ function ViewQuotation() {
         const quotationsRef = collection(db, 'quotations')
         const querySnapshot = await getDocs(quotationsRef)
         let found = false
-        
+
         querySnapshot.forEach((doc) => {
           if (doc.id === id || doc.data().docNo === id) {
             setQuotation({ id: doc.id, ...doc.data() })
             found = true
           }
         })
-        
+
         if (!found) {
           alert('Quotation not found')
           navigate('/list')
@@ -114,22 +114,22 @@ function ViewQuotation() {
   const handleCopyToBuilder = async () => {
     try {
       setCopying(true)
-      
+
       // Copy the quotation data
       const copiedData = copyQuotationToBuilder(quotation)
-      
+
       // Create URL parameters for the copy operation
       const urlParams = createCopyUrlParams(quotation.id)
-      
+
       // Store the copied data in sessionStorage for the builder to pick up
       sessionStorage.setItem('copiedQuotationData', JSON.stringify(copiedData))
-      
+
       // Show success message
       alert(`Quotation ${quotation.docNo} copied successfully! Redirecting to builder...`)
-      
+
       // Navigate to builder with copy parameters
       navigate(`/?${urlParams}`)
-      
+
     } catch (error) {
       console.error('Error copying quotation:', error)
       alert(`Error copying quotation: ${error.message}`)
@@ -177,8 +177,8 @@ function ViewQuotation() {
         <button className="btn-secondary" onClick={() => window.print()}>
           <FaPrint /> Print
         </button>
-        <button 
-          className="btn-secondary" 
+        <button
+          className="btn-secondary"
           onClick={handleCopyToBuilder}
           disabled={copying}
           style={{
@@ -204,16 +204,16 @@ function ViewQuotation() {
 
       {/* Header Page 1 - Full Page */}
       <div className="header-page-1">
-        <img 
-          src="/quotation header page 1.png" 
+        <img
+          src="/quotation header page 1.png"
           alt="Header Page 1"
         />
       </div>
 
       {/* Header Page 2 - Full Page */}
       <div className="header-page-2">
-        <img 
-          src="/quotation header page 2.png" 
+        <img
+          src="/quotation header page 2.png"
           alt="Header Page 2"
         />
       </div>
@@ -222,7 +222,7 @@ function ViewQuotation() {
         <div className="quote-header-preview">
           <div className="company-info">
             <div>
-              <h2>Lifeasy Interior</h2>
+              <h2>Morphium Quotation Builder</h2>
               <p>Design & Build Solutions</p>
             </div>
           </div>
@@ -261,7 +261,7 @@ function ViewQuotation() {
                   currentSection = r.section
                   sectionIndex++
                 }
-                
+
                 return (
                   <>
                     {showSectionHeader && (
@@ -439,7 +439,7 @@ function ViewQuotation() {
         <div className="warranty-section">
           <h3 className="section-title">WARRANTY AND DISCLAIMER OF WARRANTY-WOOD WORK</h3>
           <h4 className="subsection-title">TERMS & CONDITIONS</h4>
-          
+
           <div className="terms-list">
             <div className="term-item">
               <strong>1. Booking Fee:</strong> A 10% booking fee is required to secure your project. This amount will be adjusted against future orders.
@@ -478,7 +478,7 @@ function ViewQuotation() {
             </div>
             <div className="bank-item">
               <span className="bank-label">Account Name:</span>
-              <span className="bank-value">Lifeasy Interior</span>
+              <span className="bank-value">Morphium Quotation Builder</span>
             </div>
             <div className="bank-item">
               <span className="bank-label">Account Number:</span>
@@ -509,21 +509,21 @@ function ViewQuotation() {
           <div className="signature-box">
             <div className="signature-line"></div>
             <p className="signature-label">Authorized Signatory</p>
-            <p className="signature-date">For Lifeasy Interior</p>
+            <p className="signature-date">For Morphium Quotation Builder</p>
           </div>
         </div>
 
         {/* Footer */}
         <div className="quotation-footer">
-          <p>THANKYOU FOR CHOOSING LIFEASY INTERIOR</p>
+          <p>THANKYOU FOR CHOOSING MORPHIUM QUOTATION BUILDER</p>
           <p className="footer-slogan" style={{ fontSize: '14px' }}>Your space, your story—beautifully designed.</p>
         </div>
       </div>
 
       {/* Footer Page - Full Page */}
       <div className="footer-page">
-        <img 
-          src="/quotation footer.png" 
+        <img
+          src="/quotation footer.png"
           alt="Footer Page"
         />
       </div>

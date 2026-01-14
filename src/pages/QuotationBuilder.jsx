@@ -23,14 +23,14 @@ function QuotationBuilder() {
   const [autoSave, setAutoSave] = useState(true)
   const [history, setHistory] = useState([])
   const [historyIndex, setHistoryIndex] = useState(-1)
-  
+
   const [visibleSections, setVisibleSections] = useState({
     materialDescription: true,
     paymentSchedule: true,
     warranty: true,
     bankDetails: true
   })
-  
+
   const [formData, setFormData] = useState({
     docNo: '',
     clientName: '',
@@ -47,18 +47,18 @@ function QuotationBuilder() {
     document.documentElement.setAttribute('data-theme', theme)
     autoSetQuoteNumber()
     loadFromStorage()
-    
+
     // Check if admin mode is already active
     const isAdmin = sessionStorage.getItem('adminMode') === 'true'
     if (isAdmin) {
       setStaffMode(true)
       document.body.classList.add('staff-mode')
     }
-    
+
     // Handle copy operation first, then load operation
     const copyId = searchParams.get('copy')
     const qno = searchParams.get('load') || searchParams.get('qno')
-    
+
     if (copyId) {
       loadAndCopyQuotation(copyId)
     } else if (qno) {
@@ -71,7 +71,7 @@ function QuotationBuilder() {
       const timeoutId = setTimeout(() => {
         saveDraft()
       }, 2000) // Debounce: wait 2 seconds after last change
-      
+
       return () => clearTimeout(timeoutId)
     }
   }, [rows, formData, autoSave])
@@ -88,7 +88,7 @@ function QuotationBuilder() {
     const draft = { ...formData, rows }
     // Save to localStorage
     localStorage.setItem('rk_qb_data', JSON.stringify(draft))
-    
+
     // Also save to Firebase if quotation number exists
     if (formData.docNo) {
       const result = await saveQuotation(draft)
@@ -115,7 +115,7 @@ function QuotationBuilder() {
       console.log('Loading quotation:', qno)
       const result = await loadQuotation(qno)
       console.log('Load result:', result)
-      
+
       if (result.success) {
         const data = result.data
         console.log('Loaded data:', data)
@@ -147,15 +147,15 @@ function QuotationBuilder() {
       console.log('Loading quotation for copy:', copyId)
       const result = await loadQuotation(copyId)
       console.log('Copy load result:', result)
-      
+
       if (result.success) {
         const originalData = result.data
         console.log('Original data for copy:', originalData)
-        
+
         // Use copyQuotationToBuilder to transform the data
         const copiedData = copyQuotationToBuilder(originalData)
         console.log('Copied data:', copiedData)
-        
+
         // Load the copied data into the component state
         setRows(copiedData.rows || [])
         setFormData({
@@ -169,10 +169,10 @@ function QuotationBuilder() {
           tax: copiedData.tax || 18,
           terms: copiedData.terms || '1. 30% advance upon order confirmation.\n2. Balance as per progress milestones.'
         })
-        
+
         // Clear localStorage draft since this is a new quotation
         localStorage.removeItem('rk_qb_data')
-        
+
         alert(`Quotation copied successfully! New quotation number: ${copiedData.docNo}`)
       } else {
         console.error('Failed to load quotation for copy:', result.message)
@@ -209,7 +209,7 @@ function QuotationBuilder() {
   }
 
   const updateRow = (index, field, value) => {
-    setRows(prev => prev.map((row, i) => 
+    setRows(prev => prev.map((row, i) =>
       i === index ? { ...row, [field]: field === 'qty' || field === 'rateClient' || field === 'rateActual' ? parseFloat(value) || 0 : value } : row
     ))
   }
@@ -257,7 +257,7 @@ function QuotationBuilder() {
   const toggleStaffMode = () => {
     if (!staffMode) {
       const pass = prompt('Enter admin password:')
-      if (pass === 'LifeasyAdmin@2024') {
+      if (pass === 'MorphiumAdmin@2024') {
         setStaffMode(true)
         sessionStorage.setItem('adminMode', 'true')
         document.body.classList.add('staff-mode')
@@ -279,7 +279,7 @@ function QuotationBuilder() {
 
   return (
     <div>
-      <Header 
+      <Header
         formData={formData}
         setFormData={setFormData}
         theme={theme}
@@ -302,12 +302,12 @@ function QuotationBuilder() {
       <ClientDetails formData={formData} setFormData={setFormData} />
       <div className="layout">
         <aside className="controls">
-          <ItemForm 
+          <ItemForm
             addItem={addItem}
             staffMode={staffMode}
           />
           <hr className="divider" />
-          <Totals 
+          <Totals
             rows={rows}
             formData={formData}
             setFormData={setFormData}
@@ -319,15 +319,15 @@ function QuotationBuilder() {
             <h3 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--blue)', marginBottom: '12px' }}>
               Terms & Conditions
             </h3>
-            <textarea 
-              className="modern-textarea" 
+            <textarea
+              className="modern-textarea"
               rows="5"
               value={formData.terms}
               onChange={(e) => setFormData(prev => ({ ...prev, terms: e.target.value }))}
               placeholder="Enter terms and conditions..."
             />
           </div>
-          <Actions 
+          <Actions
             handleExportPDF={handleExportPDF}
             handlePrint={handlePrint}
             clearAll={clearAll}
@@ -339,7 +339,7 @@ function QuotationBuilder() {
             loadByNumber={loadByNumber}
           />
         </aside>
-        <QuotePreview 
+        <QuotePreview
           formData={formData}
           rows={rows}
           deleteRow={deleteRow}
