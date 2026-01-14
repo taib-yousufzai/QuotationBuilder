@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Test</title>
+</head>
+<body>
+    <h1>PDF Accessibility Test</h1>
+    <button onclick="testHeader()">Test Header PDF</button>
+    <button onclick="testFooter()">Test Footer PDF</button>
+    <div id="result"></div>
+    
+    <script>
+        async function testHeader() {
+            const result = document.getElementById('result');
+            try {
+                const response = await fetch('/quotation-header.pdf');
+                result.innerHTML = `Header PDF: Status ${response.status}, OK: ${response.ok}, Size: ${response.headers.get('content-length')}`;
+            } catch (error) {
+                result.innerHTML = `Header PDF Error: ${error.message}`;
+            }
+        }
+        
+        async function testFooter() {
+            const result = document.getElementById('result');
+            try {
+                const response = await fetch('/quotation-footer.pdf');
+                result.innerHTML = `Footer PDF: Status ${response.status}, OK: ${response.ok}, Size: ${response.headers.get('content-length')}`;
+            } catch (error) {
+                result.innerHTML = `Footer PDF Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

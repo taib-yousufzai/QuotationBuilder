@@ -1,0 +1,3100 @@
+:root {
+  --blue: #1f3b73;
+  --blue-2: #274a94;
+  --blue-light: #3d5fa8;
+  --lt: #f7f9fc;
+  --lt-2: #eef2f8;
+  --bd: #d8e0f0;
+  --bd-2: #c4d0e8;
+  --ink: #0b1b3a;
+  --muted: #5b6b8b;
+  --bg: #ffffff;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-lg: rgba(0, 0, 0, 0.15);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root[data-theme="brand"] {
+  --blue: #0e2f5a;
+  --blue-2: #133f77;
+  --blue-light: #1a4a94;
+  --lt: #f2f6ff;
+  --lt-2: #e8f0ff;
+  --bd: #cfd9f1;
+  --bd-2: #b8c7e8;
+  --ink: #0a1b33;
+  --muted: #4f6285;
+  --bg: #ffffff;
+}
+
+:root[data-theme="dark"] {
+  --blue: #5b8cff;
+  --blue-2: #82a3ff;
+  --blue-light: #a0b8ff;
+  --lt: #12161f;
+  --lt-2: #1a1f2e;
+  --bd: #2a3652;
+  --bd-2: #3a4a6a;
+  --ink: #e8eefb;
+  --muted: #9fb0d1;
+  --bg: #0e1118;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --shadow-lg: rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  background: var(--lt);
+  color: var(--ink);
+  line-height: 1.6;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.header {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-2) 100%);
+  color: white;
+  padding: 12px 20px;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.logo {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #e2b54a 0%, #f7e7a0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 20px;
+  color: #1a1a1a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.brand-text h1 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: white;
+}
+
+.brand-text p {
+  font-size: 12px;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.doc-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.meta-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.modern-input, .modern-select, .modern-textarea {
+  padding: 10px 12px;
+  border: 2px solid var(--bd);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 14px;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.modern-input:focus, .modern-select:focus, .modern-textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(31, 59, 115, 0.1);
+}
+
+.btn-primary, .btn-secondary, .btn-danger {
+  padding: 10px 16px;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-2) 100%);
+  box-shadow: 0 4px 12px rgba(31, 59, 115, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(31, 59, 115, 0.4);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+  border: 2px solid var(--bd);
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #d9e2ec 0%, #c5d3e0 100%);
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, var(--danger) 0%, #dc2626 100%);
+}
+
+.btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.client {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--bg);
+  border-bottom: 2px solid var(--bd);
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.client-card {
+  background: var(--lt);
+  border-radius: var(--radius);
+  padding: 16px;
+  border: 2px solid var(--bd);
+  transition: var(--transition);
+}
+
+.client-card:hover {
+  border-color: var(--blue);
+  box-shadow: 0 4px 12px var(--shadow);
+  transform: translateY(-2px);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 24px;
+  padding: 24px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.controls {
+  background: var(--bg);
+  border: 2px solid var(--bd);
+  border-radius: var(--radius);
+  padding: 20px;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.controls-header {
+  margin-bottom: 20px;
+}
+
+.controls-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.search-box svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 12px 10px 36px;
+  border: 2px solid var(--bd);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(31, 59, 115, 0.1);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.divider {
+  border: none;
+  border-top: 2px solid var(--bd);
+  margin: 24px 0;
+}
+
+.totals-section {
+  margin-bottom: 20px;
+}
+
+.totals-section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.totals {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.terms-section {
+  margin-bottom: 20px;
+}
+
+.terms-section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.total-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: var(--lt);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--bd);
+  font-size: 13px;
+}
+
+.total-item.total-grand {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-2) 100%);
+  color: white;
+  font-size: 15px;
+  border: none;
+  padding: 14px;
+}
+
+.total-item.total-profit {
+  background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+  color: white;
+  font-weight: 600;
+}
+
+.quote-wrapper {
+  background: var(--bg);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px var(--shadow);
+  overflow: hidden;
+}
+
+.quote {
+  padding: 32px;
+  background: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+
+thead th {
+  background: #f5f5f5;
+  color: #000000;
+  padding: 12px 8px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 3px solid #000000;
+}
+
+tbody td {
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--bd);
+  font-size: 13px;
+  vertical-align: top;
+}
+
+tbody tr:hover {
+  background: var(--lt);
+}
+
+.num {
+  text-align: right;
+}
+
+.delete-btn, .duplicate-btn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  transition: var(--transition);
+  margin-left: 4px;
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  border: 1px solid #fca5a5;
+  color: #dc2626;
+}
+
+.delete-btn:hover {
+  background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%);
+  transform: translateY(-1px);
+}
+
+.duplicate-btn {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  border: 1px solid #93c5fd;
+  color: var(--blue);
+}
+
+.duplicate-btn:hover {
+  background: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%);
+  transform: translateY(-1px);
+}
+
+.actual-col {
+  display: none;
+}
+
+.staff-mode .actual-col {
+  display: table-cell;
+}
+
+.staff-mode div.actual-col {
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .controls {
+    position: relative;
+    top: 0;
+    max-height: none;
+  }
+}
+
+@media print {
+  /* Hide UI elements */
+  .header,
+  .controls,
+  .client,
+  .actions,
+  .auto-save,
+  .delete-btn,
+  .duplicate-btn,
+  .no-print,
+  .quote-header {
+    display: none !important;
+  }
+  
+  /* Hide admin/staff columns */
+  .actual-col {
+    display: none !important;
+  }
+  
+  /* Show only the quote */
+  .layout {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .quote-wrapper {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  
+  .quote {
+    width: 100% !important;
+    padding: 20px !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+  
+  /* Ensure proper page breaks */
+  .quotation-summary,
+  .payment-section,
+  .warranty-section,
+  .bank-section,
+  .signature-section {
+    page-break-inside: avoid;
+  }
+  
+  /* Optimize table for print */
+  table {
+    page-break-inside: auto;
+  }
+  
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+  
+  /* Remove backgrounds and shadows for print */
+  * {
+    background: white !important;
+    box-shadow: none !important;
+  }
+  
+  /* Keep borders visible */
+  table,
+  th,
+  td {
+    border-color: #000 !important;
+  }
+  
+  /* Page setup */
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  @page {
+    margin: 0;
+    size: auto;
+  }
+  
+  /* Add page breaks for header pages */
+  .quote::before {
+    content: '';
+    display: block;
+    page-break-after: always;
+    height: 100vh;
+    background-image: url('/quotation header page 1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  /* Note: Browser print doesn't support multiple ::before, so header page 2 
+     will only appear in PDF download. For full control, use PDF download. */
+}
+
+
+/* Actions Section */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.actions button {
+  width: 100%;
+}
+
+/* Auto Save */
+.auto-save {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--bd);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--blue);
+}
+
+/* Quote Header */
+.quote-header {
+  padding: 20px 24px;
+  background: var(--lt);
+  border-bottom: 2px solid var(--bd);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quote-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quote-info {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Quote Preview Specific */
+.quote-header-preview {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--bd);
+}
+
+.company-info {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.company-info h2 {
+  font-size: 24px;
+  color: var(--blue);
+  margin: 0;
+}
+
+.company-info p {
+  color: var(--muted);
+  margin: 4px 0 0 0;
+  font-size: 14px;
+}
+
+.quote-meta-preview {
+  text-align: right;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.quote-meta-preview div {
+  margin-bottom: 4px;
+}
+
+.client-info-preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: var(--lt);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+}
+
+.client-info-preview div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.client-info-preview strong {
+  color: var(--blue);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Notes Section */
+.notes {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 2px solid var(--bd);
+}
+
+.notes h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Staff Only Elements */
+.staff-only {
+  display: none;
+}
+
+.staff-mode .staff-only {
+  display: block;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .client-info-preview {
+    grid-template-columns: 1fr;
+  }
+  
+  .quote-header-preview {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .quote-meta-preview {
+    text-align: left;
+  }
+}
+
+
+/* Button Alignment Fixes */
+.btn-primary, .btn-secondary, .btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+/* Table Alignment */
+.right {
+  text-align: right;
+}
+
+/* Ensure proper spacing in forms */
+.form-group > * {
+  width: 100%;
+}
+
+/* Fix for label icons */
+.label-icon {
+  color: var(--blue);
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+/* Client card label styling */
+.client-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.client-card .label-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.client-card .modern-input {
+  background: var(--bg);
+  border: 2px solid var(--bd);
+  color: var(--ink);
+  padding: 12px;
+  border-radius: var(--radius-sm);
+}
+
+.client-card .modern-input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(31, 59, 115, 0.1);
+}
+
+/* Header input styling */
+.header .modern-input,
+.header .modern-select {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.header .modern-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.header .modern-input:focus,
+.header .modern-select:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+/* Fix button widths in actions */
+.actions .btn-primary,
+.actions .btn-secondary,
+.actions .btn-danger {
+  width: 100%;
+}
+
+/* Scrollbar styling for controls */
+.controls::-webkit-scrollbar {
+  width: 8px;
+}
+
+.controls::-webkit-scrollbar-track {
+  background: var(--lt);
+  border-radius: 4px;
+}
+
+.controls::-webkit-scrollbar-thumb {
+  background: var(--bd);
+  border-radius: 4px;
+}
+
+.controls::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+
+/* ===== NEW MODERN COLOR THEMES ===== */
+:root[data-theme="ocean"] {
+  --blue: #0077be;
+  --blue-2: #0096dc;
+  --blue-light: #00b4d8;
+  --lt: #f0f9ff;
+  --lt-2: #e0f2fe;
+  --bd: #bae6fd;
+  --bd-2: #7dd3fc;
+  --ink: #0c4a6e;
+  --muted: #0369a1;
+  --bg: #ffffff;
+  --success: #06b6d4;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+}
+
+:root[data-theme="forest"] {
+  --blue: #059669;
+  --blue-2: #10b981;
+  --blue-light: #34d399;
+  --lt: #f0fdf4;
+  --lt-2: #dcfce7;
+  --bd: #bbf7d0;
+  --bd-2: #86efac;
+  --ink: #064e3b;
+  --muted: #047857;
+  --bg: #ffffff;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+}
+
+:root[data-theme="sunset"] {
+  --blue: #dc2626;
+  --blue-2: #ef4444;
+  --blue-light: #f87171;
+  --lt: #fef2f2;
+  --lt-2: #fee2e2;
+  --bd: #fecaca;
+  --bd-2: #fca5a5;
+  --ink: #7f1d1d;
+  --muted: #991b1b;
+  --bg: #ffffff;
+  --success: #10b981;
+  --danger: #dc2626;
+  --warning: #f59e0b;
+}
+
+:root[data-theme="purple"] {
+  --blue: #7c3aed;
+  --blue-2: #8b5cf6;
+  --blue-light: #a78bfa;
+  --lt: #faf5ff;
+  --lt-2: #f3e8ff;
+  --bd: #e9d5ff;
+  --bd-2: #d8b4fe;
+  --ink: #4c1d95;
+  --muted: #6b21a8;
+  --bg: #ffffff;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+}
+
+/* ===== ENHANCED QUOTATION SUMMARY ===== */
+.quotation-summary {
+  margin-top: 32px;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--lt) 0%, var(--lt-2) 100%);
+  border-radius: var(--radius);
+  border: 2px solid var(--bd);
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.summary-section {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: var(--radius-sm);
+  border: 2px solid #000000;
+  box-shadow: none;
+}
+
+.summary-section h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #000000;
+}
+
+.summary-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: var(--transition);
+  border: 1px solid #e0e0e0;
+}
+
+.summary-item:hover {
+  background: #f5f5f5;
+  transform: translateX(4px);
+}
+
+.summary-label {
+  color: var(--muted);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.summary-value {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.summary-value.negative {
+  color: var(--danger);
+}
+
+.discount-item {
+  background: #f5f5f5;
+  border: 1px solid #cccccc;
+}
+
+.tax-item {
+  background: #f5f5f5;
+  border: 1px solid #cccccc;
+}
+
+/* Grand Total Section */
+.grand-total-section {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+.grand-total-section h4 {
+  color: #000000;
+  border-bottom-color: #000000;
+  background: #f5f5f5;
+  padding: 12px;
+  margin: -20px -20px 16px -20px;
+}
+
+.grand-total-box {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  border: 2px solid #000000;
+  margin-bottom: 16px;
+}
+
+.grand-total-label {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  color: #000000;
+}
+
+.grand-total-value {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 12px 0;
+  color: #000000;
+}
+
+.grand-total-words {
+  font-size: 13px;
+  font-style: italic;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 2px solid #000000;
+  color: #000000;
+}
+
+/* Staff Summary */
+.staff-summary {
+  background: #f5f5f5;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #000000;
+  margin-top: 16px;
+}
+
+.staff-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+  border-bottom: 1px solid #cccccc;
+  color: #000000;
+}
+
+.staff-item:last-child {
+  border-bottom: none;
+}
+
+.staff-item.profit-item {
+  font-weight: 700;
+  font-size: 16px;
+  padding: 12px 0;
+  margin-top: 8px;
+  border-top: 2px solid #000000;
+}
+
+.profit-value {
+  color: #000000;
+  font-weight: 800;
+}
+
+/* Enhanced Table Styling */
+.description-cell {
+  font-size: 12px;
+  color: var(--muted);
+  max-width: 250px;
+}
+
+.remark-cell {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.amount-highlight {
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.center {
+  text-align: center;
+}
+
+.subtotal-row {
+  background: linear-gradient(135deg, var(--lt) 0%, var(--lt-2) 100%);
+  font-size: 15px;
+}
+
+.subtotal-row td {
+  padding: 16px 8px;
+  border-top: 3px solid var(--blue);
+}
+
+/* No Print Class - Hidden in print and PDF */
+.no-print {
+  /* Will be hidden in print and PDF export */
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .quotation-summary {
+    page-break-inside: avoid;
+  }
+  
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Ensure action buttons are hidden */
+  .delete-btn,
+  .duplicate-btn {
+    display: none !important;
+  }
+  
+  /* Hide action column header and cells */
+  th.no-print,
+  td.no-print {
+    display: none !important;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .grand-total-value {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quotation-summary {
+    padding: 16px;
+  }
+  
+  .summary-section {
+    padding: 16px;
+  }
+  
+  .grand-total-value {
+    font-size: 24px;
+  }
+  
+  .summary-item {
+    font-size: 13px;
+  }
+}
+
+/* Animation for summary items */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.summary-item {
+  animation: slideIn 0.3s ease-out;
+}
+
+.summary-item:nth-child(1) { animation-delay: 0.05s; }
+.summary-item:nth-child(2) { animation-delay: 0.1s; }
+.summary-item:nth-child(3) { animation-delay: 0.15s; }
+.summary-item:nth-child(4) { animation-delay: 0.2s; }
+.summary-item:nth-child(5) { animation-delay: 0.25s; }
+.summary-item:nth-child(6) { animation-delay: 0.3s; }
+
+/* Hover effect for grand total box */
+.grand-total-box {
+  transition: var(--transition);
+}
+
+.grand-total-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ===== PAYMENT SECTION ===== */
+.payment-section {
+  margin-top: 32px;
+  padding: 24px;
+  background: var(--bg);
+  border-radius: var(--radius);
+  border: 2px solid var(--bd);
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.payment-terms,
+.bank-details {
+  padding: 20px;
+  background: var(--lt);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--bd);
+}
+
+.payment-terms h4,
+.bank-details h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--bd);
+}
+
+.payment-schedule,
+.bank-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.payment-item,
+.bank-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--bg);
+  border-radius: 6px;
+  font-size: 14px;
+  border-left: 3px solid var(--blue);
+}
+
+.payment-stage,
+.bank-label {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.payment-amount,
+.bank-value {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ===== SIGNATURE SECTION ===== */
+.signature-section {
+  margin-top: 48px;
+  padding: 32px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  border-top: 2px solid var(--bd);
+}
+
+.signature-box {
+  text-align: center;
+}
+
+.signature-line {
+  width: 100%;
+  height: 80px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 12px;
+}
+
+.signature-label {
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.signature-date {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ===== QUOTATION FOOTER ===== */
+.quotation-footer {
+  margin-top: 32px;
+  padding: 24px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--lt) 0%, var(--lt-2) 100%);
+  border-radius: var(--radius);
+  border: 2px solid var(--bd);
+}
+
+.quotation-footer p {
+  margin: 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.footer-note {
+  font-size: 12px !important;
+  color: var(--muted) !important;
+  font-weight: 400 !important;
+  font-style: italic;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 1024px) {
+  .payment-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .signature-section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .payment-section {
+    padding: 16px;
+  }
+  
+  .payment-terms,
+  .bank-details {
+    padding: 16px;
+  }
+  
+  .payment-item,
+  .bank-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .payment-section,
+  .signature-section,
+  .quotation-footer {
+    page-break-inside: avoid;
+  }
+  
+  .signature-line {
+    border-bottom: 1px solid #000;
+  }
+}
+
+/* ===== ENHANCED ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.payment-section,
+.signature-section,
+.quotation-footer {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.payment-item,
+.bank-item {
+  transition: var(--transition);
+}
+
+.payment-item:hover,
+.bank-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+/* ===== GRADIENT ACCENTS ===== */
+.payment-terms {
+  background: linear-gradient(135deg, var(--lt) 0%, var(--bg) 100%);
+}
+
+.bank-details {
+  background: linear-gradient(135deg, var(--bg) 0%, var(--lt) 100%);
+}
+
+/* ===== THEME-SPECIFIC ENHANCEMENTS ===== */
+:root[data-theme="dark"] .payment-section,
+:root[data-theme="dark"] .signature-section,
+:root[data-theme="dark"] .quotation-footer {
+  background: var(--lt-2);
+  border-color: var(--bd-2);
+}
+
+:root[data-theme="dark"] .signature-line {
+  border-bottom-color: var(--ink);
+}
+
+/* ===== PROFESSIONAL TOUCHES ===== */
+.bank-value {
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.5px;
+}
+
+.payment-amount {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* ===== BOLD & DARK TEXT FOR QUOTATION ===== */
+
+/* Make all text in quote preview bold and dark */
+.quote {
+  color: #000000;
+  font-weight: 600;
+}
+
+/* Company header */
+.company-info h2 {
+  color: #000000;
+  font-weight: 800;
+}
+
+.company-info p {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* Quote metadata */
+.quote-meta-preview {
+  color: #000000;
+  font-weight: 700;
+}
+
+.quote-meta-preview strong {
+  font-weight: 800;
+}
+
+/* Client information */
+.client-info-preview {
+  color: #000000;
+  font-weight: 700;
+}
+
+.client-info-preview strong {
+  color: #000000;
+  font-weight: 800;
+}
+
+/* Table styling - bold and dark */
+table {
+  color: #000000;
+}
+
+thead th {
+  color: #000000;
+  font-weight: 800;
+  background: #f5f5f5;
+}
+
+tbody td {
+  color: #000000;
+  font-weight: 600;
+}
+
+tbody td strong {
+  font-weight: 800;
+}
+
+.description-cell {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.remark-cell {
+  color: #2d2d2d;
+  font-weight: 600;
+}
+
+.amount-highlight {
+  font-weight: 800;
+  color: #000000;
+}
+
+tfoot td {
+  color: #000000;
+  font-weight: 800;
+}
+
+/* Summary section - bold and dark */
+.quotation-summary {
+  color: #000000;
+}
+
+.summary-section h4 {
+  color: #000000;
+  font-weight: 800;
+}
+
+.summary-label {
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.summary-value {
+  font-weight: 800;
+  color: #000000;
+}
+
+/* Grand total - extra bold */
+.grand-total-label {
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.grand-total-value {
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.grand-total-words {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Payment section - bold and dark */
+.payment-terms h4,
+.bank-details h4 {
+  color: #000000;
+  font-weight: 800;
+}
+
+.payment-stage,
+.bank-label {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.payment-amount,
+.bank-value {
+  font-weight: 800;
+  color: #000000;
+}
+
+/* Signature section - bold and dark */
+.signature-label {
+  font-weight: 800;
+  color: #000000;
+}
+
+.signature-date {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* Footer - bold and dark */
+.quotation-footer p {
+  font-weight: 700;
+  color: #000000;
+}
+
+.footer-note {
+  font-weight: 600 !important;
+  color: #2d2d2d !important;
+}
+
+/* Terms & conditions - bold and dark */
+.notes h3 {
+  color: #000000;
+  font-weight: 800;
+}
+
+.modern-textarea {
+  color: #000000;
+  font-weight: 600;
+}
+
+/* Staff summary - bold */
+.staff-summary {
+  font-weight: 700;
+}
+
+.staff-item {
+  font-weight: 700;
+}
+
+.staff-item.profit-item {
+  font-weight: 800;
+}
+
+/* Print-specific bold text */
+@media print {
+  .quote,
+  .quote * {
+    color: #000000 !important;
+    font-weight: 600 !important;
+  }
+  
+  thead th {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+  }
+  
+  strong,
+  .summary-value,
+  .grand-total-value,
+  .payment-amount,
+  .bank-value,
+  .signature-label {
+    font-weight: 800 !important;
+  }
+  
+  h2, h3, h4 {
+    font-weight: 800 !important;
+    color: #000000 !important;
+  }
+}
+
+/* PDF export - ensure bold and dark */
+.quote-wrapper {
+  color: #000000;
+}
+
+.quote-wrapper strong {
+  font-weight: 800;
+}
+
+/* Override any light colors */
+.quote .label-text,
+.quote .summary-label,
+.quote .payment-stage,
+.quote .bank-label {
+  color: #1a1a1a !important;
+  font-weight: 700 !important;
+}
+
+/* Ensure all headings are bold and dark */
+.quote h1,
+.quote h2,
+.quote h3,
+.quote h4,
+.quote h5,
+.quote h6 {
+  color: #000000 !important;
+  font-weight: 800 !important;
+}
+
+/* Numbers and amounts - extra bold */
+.num,
+.total-value,
+.summary-value,
+.payment-amount,
+.bank-value {
+  font-weight: 800 !important;
+  color: #000000 !important;
+}
+
+
+/* ===== PROFESSIONAL PAYMENT SCHEDULE TABLE ===== */
+.payment-section {
+  margin-top: 32px;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.section-title {
+  background: #ffffff;
+  color: #000000;
+  padding: 12px 16px;
+  margin: 0 0 2px 0;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 0.5px;
+  border: 2px solid #000000;
+  border-bottom: 3px solid #000000;
+}
+
+.payment-table {
+  border: 2px solid #000000;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.payment-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  border-bottom: 1px solid #000000;
+}
+
+.payment-row:last-child {
+  border-bottom: none;
+}
+
+.payment-header {
+  background: #ffffff;
+  color: #000000;
+  font-weight: 800;
+  border-bottom: 3px solid #000000;
+}
+
+.payment-col {
+  padding: 12px 16px;
+  border-right: 1px solid #000000;
+  font-weight: 600;
+  color: #000000;
+}
+
+.payment-header .payment-col {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.payment-col:last-child {
+  border-right: none;
+}
+
+/* ===== WARRANTY AND TERMS SECTION ===== */
+.warranty-section {
+  margin-top: 24px;
+  padding: 0;
+  background: transparent;
+  border: 2px solid #000000;
+}
+
+.subsection-title {
+  background: #ffffff;
+  color: #000000;
+  padding: 10px 16px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 0.5px;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+}
+
+.terms-list {
+  padding: 20px;
+  background: #ffffff;
+}
+
+.term-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #000000;
+  font-weight: 600;
+}
+
+.term-item:last-child {
+  border-bottom: none;
+}
+
+.term-item strong {
+  color: #000000;
+  font-weight: 800;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+/* ===== BANK DETAILS SECTION ===== */
+.bank-section {
+  margin-top: 24px;
+  padding: 0;
+  background: transparent;
+  border: 2px solid #000000;
+}
+
+.bank-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  background: #ffffff;
+  padding: 20px;
+}
+
+.bank-section .bank-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e5e5e5;
+  background: transparent;
+  border-radius: 0;
+  border-left: none;
+}
+
+.bank-section .bank-label {
+  font-weight: 700;
+  color: #000000;
+}
+
+.bank-section .bank-value {
+  font-weight: 800;
+  color: #000000;
+  font-family: 'Courier New', monospace;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+  .payment-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .payment-col {
+    border-right: none;
+    border-bottom: 1px solid #000000;
+  }
+  
+  .payment-col:last-child {
+    border-bottom: none;
+  }
+  
+  .bank-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== PRINT OPTIMIZATION ===== */
+@media print {
+  .payment-section,
+  .warranty-section,
+  .bank-section {
+    page-break-inside: avoid;
+    border: 2px solid #000000 !important;
+  }
+  
+  .section-title {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-bottom: 3px solid #000000 !important;
+  }
+  
+  .subsection-title {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-bottom: 2px solid #000000 !important;
+  }
+  
+  .payment-header {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-bottom: 3px solid #000000 !important;
+  }
+  
+  thead th {
+    background: #f5f5f5 !important;
+    color: #000000 !important;
+    border-bottom: 3px solid #000000 !important;
+  }
+  
+  .payment-col,
+  .term-item,
+  .bank-item {
+    color: #000000 !important;
+    font-weight: 600 !important;
+  }
+  
+  .term-item strong,
+  .bank-label,
+  .bank-value {
+    font-weight: 800 !important;
+  }
+}
+
+/* ===== ENHANCED STYLING ===== */
+.payment-table {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.warranty-section,
+.bank-section {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.term-item:hover {
+  background: #f9f9f9;
+  padding-left: 8px;
+  transition: all 0.2s ease;
+}
+
+/* ===== BOLD TEXT FOR SECTIONS ===== */
+.payment-section,
+.warranty-section,
+.bank-section {
+  color: #000000;
+  font-weight: 600;
+}
+
+.payment-section strong,
+.warranty-section strong,
+.bank-section strong {
+  font-weight: 800;
+}
+
+
+/* ===== EDITABLE CONTENT STYLING ===== */
+[contentEditable="true"] {
+  outline: none;
+  cursor: text;
+  transition: background 0.2s ease;
+}
+
+[contentEditable="true"]:hover {
+  background: #f0f0f0;
+  border-radius: 2px;
+  padding: 2px 4px;
+  margin: -2px -4px;
+}
+
+[contentEditable="true"]:focus {
+  background: #e8e8e8;
+  border-radius: 2px;
+  padding: 2px 4px;
+  margin: -2px -4px;
+  box-shadow: 0 0 0 2px #cccccc;
+}
+
+/* Editable table cells */
+td[contentEditable="true"]:hover {
+  background: #f5f5f5;
+}
+
+td[contentEditable="true"]:focus {
+  background: #eeeeee;
+  box-shadow: inset 0 0 0 2px #cccccc;
+}
+
+/* Remove colors from all quotation elements */
+.quotation-summary {
+  background: #ffffff;
+  border: 2px solid #000000;
+}
+
+.summary-grid {
+  gap: 16px;
+}
+
+/* Remove all gradient backgrounds */
+.payment-amount {
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  color: #000000;
+  font-weight: 800;
+}
+
+/* Ensure all text is black */
+.quote * {
+  color: #000000 !important;
+}
+
+/* All text should be black */
+.section-title,
+.subsection-title,
+.payment-header .payment-col {
+  color: #000000 !important;
+}
+
+/* Remove all colored backgrounds except black headers */
+.payment-terms,
+.bank-details {
+  background: #ffffff;
+  border: 1px solid #cccccc;
+}
+
+/* Print: hide editable indicators */
+@media print {
+  [contentEditable="true"]:hover,
+  [contentEditable="true"]:focus {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+
+/* ===== ADDITIONAL TERMS SECTION ===== */
+.additional-terms-section {
+  margin-top: 24px;
+  padding: 0;
+  background: transparent;
+  border: 2px solid #000000;
+}
+
+.terms-content {
+  padding: 20px;
+  background: #ffffff;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #000000;
+  font-weight: 600;
+  white-space: pre-wrap;
+  min-height: 100px;
+}
+
+.terms-content:hover {
+  background: #f9f9f9;
+}
+
+.terms-content:focus {
+  background: #f5f5f5;
+  outline: none;
+  box-shadow: inset 0 0 0 2px #cccccc;
+}
+
+@media print {
+  .additional-terms-section {
+    page-break-inside: avoid;
+  }
+}
+
+
+/* ===== SPECIFICATIONS TABLE ===== */
+.specifications-section {
+  margin-top: 24px;
+  padding: 0;
+  background: transparent;
+  border: 2px solid #000000;
+}
+
+.specifications-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.specifications-table tbody tr {
+  border-bottom: 1px solid #000000;
+}
+
+.specifications-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.specifications-table td {
+  padding: 10px 12px;
+  border-right: 1px solid #000000;
+  font-size: 12px;
+  font-weight: 600;
+  color: #000000;
+  vertical-align: top;
+}
+
+.specifications-table td:last-child {
+  border-right: none;
+}
+
+.spec-label {
+  width: 180px;
+  font-weight: 800;
+  background: #f9f9f9;
+}
+
+.spec-value {
+  width: 200px;
+  font-weight: 700;
+}
+
+.spec-detail {
+  font-weight: 600;
+}
+
+.spec-measurement {
+  width: 80px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Editable cells in specifications */
+.specifications-table td[contentEditable="true"]:hover {
+  background: #f5f5f5;
+}
+
+.specifications-table td[contentEditable="true"]:focus {
+  background: #eeeeee;
+  box-shadow: inset 0 0 0 2px #cccccc;
+}
+
+/* Print optimization */
+@media print {
+  .specifications-section {
+    page-break-inside: avoid;
+  }
+  
+  .specifications-table td[contentEditable="true"]:hover,
+  .specifications-table td[contentEditable="true"]:focus {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .specifications-table {
+    font-size: 11px;
+  }
+  
+  .spec-label {
+    width: 120px;
+  }
+  
+  .spec-value {
+    width: 150px;
+  }
+  
+  .spec-measurement {
+    width: 60px;
+  }
+}
+
+/* Section Controls */
+.section-controls {
+  background: var(--lt);
+  border: 1px solid var(--bd);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.section-controls input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--blue);
+}
+
+.section-controls label {
+  font-size: 14px;
+  color: var(--ink);
+  user-select: none;
+}
+
+.section-controls label:hover {
+  color: var(--blue);
+}
+
+/* Section Header Row in Table */
+.section-header-row {
+  background: linear-gradient(135deg, #e8f0ff 0%, #d0e2ff 100%);
+  border-top: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+}
+
+.section-header-cell {
+  padding: 12px 16px !important;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center !important;
+  white-space: nowrap;
+}
+
+.section-header-cell svg {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.section-header-row:hover {
+  background: linear-gradient(135deg, #d0e2ff 0%, #b8d4ff 100%);
+}
+
+@media print {
+  .section-header-row {
+    background: #f0f0f0 !important;
+    border-top: 2px solid #000000 !important;
+    border-bottom: 2px solid #000000 !important;
+  }
+  
+  .section-header-cell {
+    color: #000000 !important;
+  }
+}
+
+/* Preset Dropdown Enhancement */
+.preset-dropdown-scrollable {
+  cursor: pointer;
+  overflow-y: auto !important;
+  height: auto !important;
+  max-height: 300px;
+  margin-top: 8px;
+  padding: 4px;
+}
+
+.preset-dropdown-scrollable option {
+  padding: 10px 12px;
+  font-size: 14px;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 40px;
+  line-height: 1.5;
+  border-bottom: 1px solid var(--bd);
+  cursor: pointer;
+}
+
+.preset-dropdown-scrollable option:hover {
+  background: var(--lt);
+}
+
+.preset-dropdown-scrollable option:checked,
+.preset-dropdown-scrollable option:focus {
+  background: var(--blue) !important;
+  color: white !important;
+}
+
+/* Ensure staff mode buttons are visible */
+.staff-mode .btn-secondary,
+.staff-mode .btn-primary,
+.staff-mode .btn-danger {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Make sure action buttons in table are visible */
+.staff-mode .delete-btn,
+.staff-mode .duplicate-btn {
+  display: inline-flex !important;
+  visibility: visible !important;
+}
+
+/* Remove spinner buttons from number inputs */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+
+/* ===== COMPREHENSIVE RESPONSIVE DESIGN ===== */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+  .header {
+    padding: 16px;
+  }
+  
+  .doc-meta {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .meta-group {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  
+  .meta-group label {
+    flex: 1;
+    min-width: 150px;
+  }
+  
+  .layout {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .controls {
+    position: relative;
+    top: 0;
+    max-height: none;
+    order: 2;
+  }
+  
+  .quote-wrapper {
+    order: 1;
+  }
+  
+  .client {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+  
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .payment-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .signature-section {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Header */
+  .header {
+    padding: 12px;
+  }
+  
+  .brand {
+    margin-bottom: 12px;
+  }
+  
+  .logo {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+  
+  .brand-text h1 {
+    font-size: 16px;
+  }
+  
+  .brand-text p {
+    font-size: 11px;
+  }
+  
+  .doc-meta {
+    gap: 8px;
+  }
+  
+  .meta-group {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  
+  .meta-group label {
+    width: 100%;
+  }
+  
+  .modern-input,
+  .modern-select {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+  
+  .btn-primary,
+  .btn-secondary,
+  .btn-danger {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    justify-content: center;
+  }
+  
+  /* Client Details */
+  .client {
+    grid-template-columns: 1fr;
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .client-card {
+    padding: 12px;
+  }
+  
+  /* Layout */
+  .layout {
+    grid-template-columns: 1fr;
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .controls {
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  /* Form Groups */
+  .form-group {
+    gap: 12px;
+  }
+  
+  .row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  /* Actions */
+  .actions {
+    gap: 8px;
+  }
+  
+  .actions button {
+    width: 100%;
+    padding: 12px;
+  }
+  
+  /* Quote Preview */
+  .quote {
+    padding: 16px;
+  }
+  
+  .quote-header-preview {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .company-info h2 {
+    font-size: 18px;
+  }
+  
+  .company-info p {
+    font-size: 12px;
+  }
+  
+  .quote-meta-preview {
+    text-align: left;
+    font-size: 12px;
+  }
+  
+  .client-info-preview {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px;
+    font-size: 13px;
+  }
+  
+  /* Tables */
+  table {
+    font-size: 11px;
+  }
+  
+  thead th {
+    padding: 8px 4px;
+    font-size: 10px;
+  }
+  
+  tbody td {
+    padding: 8px 4px;
+    font-size: 11px;
+  }
+  
+  /* Hide less important columns on mobile */
+  .mobile-hide {
+    display: none;
+  }
+  
+  /* Make table scrollable horizontally */
+  .quote-wrapper {
+    overflow-x: auto;
+  }
+  
+  table {
+    min-width: 600px;
+  }
+  
+  /* Summary */
+  .quotation-summary {
+    padding: 12px;
+  }
+  
+  .summary-section {
+    padding: 12px;
+  }
+  
+  .summary-section h4 {
+    font-size: 14px;
+  }
+  
+  .summary-item {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  
+  .summary-value {
+    font-size: 13px;
+  }
+  
+  .grand-total-box {
+    padding: 16px;
+  }
+  
+  .grand-total-value {
+    font-size: 24px;
+  }
+  
+  .grand-total-words {
+    font-size: 11px;
+  }
+  
+  /* Payment Section */
+  .payment-section {
+    padding: 12px;
+  }
+  
+  .section-title {
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+  
+  .payment-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .payment-col {
+    padding: 10px 12px;
+    border-right: none;
+    border-bottom: 1px solid #000000;
+    font-size: 12px;
+  }
+  
+  .payment-col:last-child {
+    border-bottom: none;
+  }
+  
+  /* Specifications */
+  .specifications-table {
+    font-size: 10px;
+  }
+  
+  .specifications-table td {
+    padding: 8px 6px;
+  }
+  
+  .spec-label {
+    width: 100px;
+  }
+  
+  .spec-value {
+    width: 120px;
+  }
+  
+  .spec-measurement {
+    width: 50px;
+  }
+  
+  /* Warranty Section */
+  .warranty-section {
+    padding: 0;
+  }
+  
+  .subsection-title {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+  
+  .terms-list {
+    padding: 12px;
+  }
+  
+  .term-item {
+    padding: 10px 0;
+    font-size: 11px;
+  }
+  
+  /* Bank Details */
+  .bank-details-grid {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+  
+  .bank-section .bank-item {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  
+  /* Signature */
+  .signature-section {
+    padding: 16px 12px;
+    gap: 20px;
+  }
+  
+  .signature-line {
+    height: 60px;
+  }
+  
+  .signature-label {
+    font-size: 12px;
+  }
+  
+  .signature-date {
+    font-size: 11px;
+  }
+  
+  /* Footer */
+  .quotation-footer {
+    padding: 16px 12px;
+  }
+  
+  .quotation-footer p {
+    font-size: 14px;
+  }
+  
+  /* Totals */
+  .total-item {
+    padding: 8px;
+    font-size: 12px;
+  }
+  
+  .total-item.total-grand {
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  /* Section Header */
+  .section-header-cell {
+    padding: 10px 12px !important;
+    font-size: 12px;
+  }
+  
+  /* Delete and Duplicate Buttons */
+  .delete-btn,
+  .duplicate-btn {
+    padding: 4px 8px;
+    font-size: 10px;
+    margin-left: 2px;
+  }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .header {
+    padding: 10px;
+  }
+  
+  .logo {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+  
+  .brand-text h1 {
+    font-size: 14px;
+  }
+  
+  .brand-text p {
+    font-size: 10px;
+  }
+  
+  .btn-primary,
+  .btn-secondary,
+  .btn-danger {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  .quote {
+    padding: 12px;
+  }
+  
+  .company-info h2 {
+    font-size: 16px;
+  }
+  
+  table {
+    font-size: 10px;
+    min-width: 500px;
+  }
+  
+  thead th {
+    padding: 6px 3px;
+    font-size: 9px;
+  }
+  
+  tbody td {
+    padding: 6px 3px;
+    font-size: 10px;
+  }
+  
+  .grand-total-value {
+    font-size: 20px;
+  }
+  
+  .section-title {
+    font-size: 11px;
+    padding: 8px 10px;
+  }
+  
+  .payment-col {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+  
+  .term-item {
+    font-size: 10px;
+  }
+  
+  .bank-section .bank-item {
+    font-size: 11px;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .header {
+    position: relative;
+  }
+  
+  .controls {
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btn-primary,
+  .btn-secondary,
+  .btn-danger {
+    min-height: 44px;
+    padding: 12px 16px;
+  }
+  
+  .modern-input,
+  .modern-select,
+  .modern-textarea {
+    min-height: 44px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .checkbox-label input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* Larger tap targets */
+  .delete-btn,
+  .duplicate-btn {
+    min-height: 36px;
+    padding: 8px 12px;
+  }
+}
+
+/* Prevent horizontal scroll */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  * {
+    max-width: 100%;
+  }
+}
+
+/* Improve readability on small screens */
+@media (max-width: 768px) {
+  .description-cell {
+    max-width: 150px;
+    font-size: 10px;
+  }
+  
+  .remark-cell {
+    max-width: 100px;
+    font-size: 10px;
+  }
+  
+  /* Stack table on very small screens */
+  @media (max-width: 480px) {
+    .quote-wrapper {
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+  }
+  
+  h3 {
+    font-size: 1.1rem;
+  }
+  
+  h4 {
+    font-size: 1rem;
+  }
+}
+
+/* Improve form usability on mobile */
+@media (max-width: 768px) {
+  .form-group label {
+    width: 100%;
+  }
+  
+  .label-text {
+    font-size: 11px;
+  }
+  
+  .modern-textarea {
+    min-height: 100px;
+    font-size: 14px;
+  }
+}
+
+/* Header scrolls with page on mobile */
+@media (max-width: 768px) {
+  .header {
+    position: relative;
+  }
+}
+
+/* Better spacing on mobile */
+@media (max-width: 768px) {
+  .divider {
+    margin: 16px 0;
+  }
+  
+  .totals-section,
+  .terms-section {
+    margin-bottom: 16px;
+  }
+}
+
+/* Responsive Grid for QuotationList */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  thead,
+  tbody,
+  tr {
+    display: table;
+    width: 100%;
+  }
+}
+
+/* Hide certain columns on mobile for QuotationList */
+@media (max-width: 600px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+
+/* Tablet view improvements (768px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header .meta-group:last-child {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    width: 100%;
+  }
+  
+  .header .meta-group:last-child button {
+    width: 100%;
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
+
+/* Hide header action buttons on mobile for cleaner interface */
+@media (max-width: 768px) {
+  .header .meta-group:last-child {
+    display: none !important;
+  }
+  
+  /* Keep the controls sidebar visible on mobile */
+  .controls {
+    display: block;
+  }
+}
+
+/* On mobile, ensure action buttons in sidebar are visible */
+@media (max-width: 768px) {
+  .actions {
+    display: flex !important;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .actions button {
+    width: 100%;
+    display: flex !important;
+  }
+}
+
+/* Print Header/Footer Notice */
+@media print {
+  .print-notice {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff3cd;
+    color: #856404;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    border-bottom: 2px solid #ffc107;
+    z-index: 9999;
+  }
+}
+
+.print-notice {
+  display: none;
+}
+
+/* Header and Footer Pages - Hide on screen, show in print */
+.header-page-1,
+.header-page-2,
+.footer-page {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  max-height: 0 !important;
+  max-width: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: -9999 !important;
+}
+
+.header-page-1 *,
+.header-page-2 *,
+.footer-page * {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Ensure they stay hidden on all screen sizes */
+@media screen {
+  .header-page-1,
+  .header-page-2,
+  .footer-page {
+    display: none !important;
+  }
+}
+
+@media print {
+  /* Show header/footer pages in all print scenarios */
+  .header-page-1,
+  .header-page-2,
+  .footer-page {
+    display: flex !important;
+    visibility: visible !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 297mm !important;
+    max-height: 297mm !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    page-break-inside: avoid !important;
+    page-break-before: auto;
+    page-break-after: always !important;
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 1 !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .header-page-1 *,
+  .header-page-2 *,
+  .footer-page * {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .header-page-1 img,
+  .header-page-2 img,
+  .footer-page img {
+    width: 100% !important;
+    height: 297mm !important;
+    max-width: 100% !important;
+    max-height: 297mm !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    visibility: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    page-break-inside: avoid !important;
+    border: none !important;
+    position: relative !important;
+    opacity: 1 !important;
+    z-index: 1 !important;
+  }
+  
+  /* Ensure proper page breaks - header 1 is first, no page before it */
+  .header-page-1 {
+    page-break-before: avoid !important;
+    page-break-after: always !important;
+  }
+  
+  .header-page-2 {
+    page-break-before: auto !important;
+    page-break-after: always !important;
+  }
+  
+  .footer-page {
+    page-break-before: always !important;
+    page-break-after: avoid !important;
+  }
+  
+  /* Prevent extra page before header */
+  .quote-wrapper {
+    page-break-before: avoid !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Ensure quote content starts on new page after header 2 */
+  .quote {
+    page-break-before: always;
+  }
+  
+  /* Hide section controls completely */
+  .section-controls {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Remove margins from page */
+  @page {
+    margin: 0;
+    size: auto;
+  }
+  
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  html {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Remove the old ::before pseudo-element */
+  .quote::before {
+    display: none !important;
+  }
+}
